@@ -1,5 +1,5 @@
 Metadata-Version: 1.1
-Name: django-extra-migratios
+Name: django-extra-migrations
 Version: 0.0.1
 Summary: Extra migration classes for django
 Home-page: https://github.com/xacce/django_extra_migrations

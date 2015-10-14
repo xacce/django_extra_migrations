@@ -9,7 +9,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='django_extra_migratios',
+    name='django_extra_migrations',
     version='0.0.1',
 
     description='Extra migration classes for django',

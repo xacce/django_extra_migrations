@@ -1,3 +1,5 @@
+    pip install django_extra_migrations
+
 # Resave
 
 *Resave all records with calling save and signals events*
