@@ -1,12 +1,14 @@
 Metadata-Version: 1.1
 Name: django-extra-migrations
-Version: 0.0.1
+Version: 0.0.4
 Summary: Extra migration classes for django
 Home-page: https://github.com/xacce/django_extra_migrations
 Author: Xacce
 Author-email: thiscie@gmail.com
 License: MIT
-Description: # Resave
+Description:     pip install django_extra_migrations
+        
+        # Resave
         
         *Resave all records with calling save and signals events*
         

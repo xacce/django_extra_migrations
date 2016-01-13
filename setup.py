@@ -10,7 +10,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='django_extra_migrations',
-    version='0.0.1',
+    version='0.0.4',
 
     description='Extra migration classes for django',
     long_description=long_description,
