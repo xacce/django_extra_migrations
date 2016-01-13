@@ -61,8 +61,10 @@ class GrantPermissions(Operation):
         for model_path, perms in self.perms:
             try:
                 ct = ContentType.objects.get_for_model(get_model(model_path))
-            except LookupError:
-                continue
+            except LookupError, e:
+                flt = model_path.split('.')
+                ct = ContentType.objects.get(app_label=flt[0], model=flt[1].lower())
+
             kw = {"content_type": ct}
             if perms is not True:
                 kw['codename__in'] = perms
