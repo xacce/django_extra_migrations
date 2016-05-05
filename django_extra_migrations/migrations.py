@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 from django.contrib.auth.models import Group, Permission, PermissionManager
 from django.contrib.contenttypes.models import ContentType
 from django.db.migrations.operations.base import Operation
-from django.db.models.loading import get_model
+from django.apps import apps
 from progressbar import ProgressBar
 
 
@@ -21,7 +21,7 @@ class Resave(Operation):
         pass
 
     def database_forwards(self, app_label, schema_editor, from_state, to_state):
-        model = get_model(self.model_path)
+        model = apps.get_model(self.model_path)
         ttl = model.objects.count()
         i = 0
         print "\n\tResave model %s. Total: %d" % (self.model_path, ttl)
@@ -60,7 +60,7 @@ class GrantPermissions(Operation):
     def prepare_perms(self):
         for model_path, perms in self.perms:
             try:
-                ct = ContentType.objects.get_for_model(get_model(model_path))
+                ct = ContentType.objects.get_for_model(apps.get_model(model_path))
             except LookupError, e:
                 flt = model_path.split('.')
                 ct = ContentType.objects.get(app_label=flt[0], model=flt[1].lower())
